@@ -43,6 +43,11 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
+                if(udbh.readNamesUsers().contains(userName)){
+                    Toast.makeText(SignUp.this,"The name is not available",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 User user= new User(userName,userPassword,1,null);
 
                 udbh.addNewUser(user);

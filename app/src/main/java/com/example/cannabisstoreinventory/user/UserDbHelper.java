@@ -51,7 +51,6 @@ public class UserDbHelper extends SQLiteOpenHelper {
 
         db.close();
     }
-
     public ArrayList<User>readUsers(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursorUsers=db.rawQuery("SELECT * FROM " +TABLE_NAME,null);
@@ -68,6 +67,19 @@ public class UserDbHelper extends SQLiteOpenHelper {
 
         cursorUsers.close();
         return userArrayList;
+    }
+
+    public ArrayList<String>readNamesUsers(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursorNameUser = db.rawQuery("SELECT " + NAME_COL + " FROM " + TABLE_NAME,null);
+        ArrayList<String>nameUsersArrayList=new ArrayList<>();
+        if(cursorNameUser.moveToFirst()){
+            do {
+                nameUsersArrayList.add(cursorNameUser.getString(1));
+            }while(cursorNameUser.moveToNext());
+        }
+        cursorNameUser.close();
+        return nameUsersArrayList;
     }
 
     @Override
