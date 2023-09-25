@@ -1,5 +1,7 @@
 package com.example.cannabisstoreinventory.user;
 
+import android.content.ContentValues;
+
 import java.util.UUID;
 
 public class User {
@@ -7,10 +9,10 @@ public class User {
     private String id;
     private String name;
     private String password;
-    private boolean admin;
+    private int admin;
     private String avatarUri;
 
-    public User (String name, String password, boolean admin,String avatarUri){
+    public User (String name, String password, int admin,String avatarUri){
         this.id= UUID.randomUUID().toString();
         this.name=name;
         this.password=password;
@@ -30,7 +32,7 @@ public class User {
         return password;
     }
 
-    public boolean isAdmin() {
+    public int getAdmin() {
         return admin;
     }
 
@@ -46,7 +48,7 @@ public class User {
         this.password = password;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(int admin) {
         this.admin = admin;
     }
 
@@ -57,4 +59,6 @@ public class User {
     public void setAvatarUri(String avatarUri) {
         this.avatarUri = avatarUri;
     }
+
+
 }

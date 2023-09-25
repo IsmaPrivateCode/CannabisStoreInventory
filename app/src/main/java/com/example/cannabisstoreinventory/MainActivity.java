@@ -3,12 +3,15 @@ package com.example.cannabisstoreinventory;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ViewAnimator;
+
+import com.example.cannabisstoreinventory.user.UserDbHelper;
 
 import org.w3c.dom.Text;
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        UserDbHelper udbh= new UserDbHelper(MainActivity.this);
         idCaption();
     }
 
